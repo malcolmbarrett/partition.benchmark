@@ -1,0 +1,12 @@
+Package: partition.benchmark
+Type: Package
+Title: Benchmarking Functions for Partition
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: Malcolm Barrett <malcolmbarrett@gmail.com>
+Description: Benchmarks for the partition package
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
