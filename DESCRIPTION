@@ -15,4 +15,5 @@ Imports:
     microbenchmark,
     purrr,
     ggplot2,
-    ggridges
+    ggridges,
+    forcats

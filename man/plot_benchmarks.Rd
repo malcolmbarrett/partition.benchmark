@@ -7,6 +7,8 @@
 plot_benchmarks(what = "all", .df = NULL)
 }
 \arguments{
+\item{what}{What should be plotted? Either "kmeans_icc()" or "partition()"}
+
 \item{.df}{a \code{data.frame} with benchmarks. Default is \code{NULL}, which plots
 benchmarks in the internal \code{benchmarks} data.}
 }

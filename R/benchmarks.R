@@ -98,7 +98,7 @@ benchmark_kmeans <- function(n = c(10, 100, 1000), threshold.icc = .4, ..., unit
 #' `plot_benchmarks()` uses `ggplot2` and `ggridges` to plot densities of
 #' benchmarked times in the stored `benchmarks` data or new data.
 #'
-#' @param what
+#' @param what What should be plotted? Either "kmeans_icc()" or "partition()"
 #' @param .df a `data.frame` with benchmarks. Default is `NULL`, which plots
 #'   benchmarks in the internal `benchmarks` data.
 #'
@@ -119,7 +119,7 @@ plot_benchmarks <- function(what = "all", .df = NULL) {
   #  colors from the colorblindr package
   clrs <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442",
             "#0072B2", "#D55E00", "#CC79A7", "#999999")
-   p <- ggplot2::ggplot(benchmarks_data, ggplot2::aes(time, date,
+   p <- ggplot2::ggplot(benchmarks_data, ggplot2::aes(time, forcats::fct_rev(as.character(date)),
                                             fill = factor(n),
                                             color = factor(n)
                                             )) +
@@ -132,7 +132,8 @@ plot_benchmarks <- function(what = "all", .df = NULL) {
     ggplot2::scale_color_manual(name = "n", values = clrs) +
     ggplot2::scale_fill_manual(name = "n", values = paste0(clrs, "90")) +
     ggplot2::scale_x_continuous(breaks = scales::pretty_breaks(3)) +
-    ggplot2::facet_grid(method ~ call, scales = "free_x")
+    ggplot2::facet_grid(method ~ call, scales = "free_x") +
+    ggplot2::labs(x = "time (milliseconds)", y = "date")
 
    if (what == "all") p <- p + ggplot2::labs(caption = "Note: x-axis differs by function")
 
